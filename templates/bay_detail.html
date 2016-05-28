@@ -1,0 +1,53 @@
+{% include 'top.html' %}
+<div class="content">
+    <div class="container details">
+        <h1 class="title">Bay: {{ bay[0] }}
+            {% if user.homebay == bay[0] %}
+            <a class="home_check">Homebay</a>
+            {% else %}
+            <a class="home_add" href="{{url_for('homebay')}}?bay={{bay[0]}}&action=update">Add Homebay</a>
+            {% endif %}
+        </h1>
+
+        <h2>Information</h2>
+        <table>
+            <tr>
+                <td>Description</td>
+                <td> {{ bay[1] }}</td>
+            </tr>
+            <tr>
+                <td> Address </td>
+                <td> {{ bay[2] }}</td>
+            </tr>
+            <tr>
+                <td> Latitude </td>
+                <td> {{ bay[3] }} </td>
+            </tr>
+            <tr>
+                <td> Longitude </td>
+                <td> {{ bay[4] }} </td>
+            </tr>
+        </table>
+
+        <h2>Cars</h2>
+        <table class="styled left">
+            <thead>
+                <tr>
+                    <td>Regno</td>
+                    <td>Name</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in cars %}
+                <tr>
+                    <td><a href="{{url_for('list_cars')}}?car={{ car[0] }}">{{ car[0] }}</a></td>
+                    <td>{{ car[1] }}</td>
+                    <td><a class="book_button" href="{{url_for('new_booking')}}?car={{car[0]}}">Book Me!</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</div>
+{% include 'bottom.html' %}

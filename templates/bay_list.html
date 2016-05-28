@@ -1,0 +1,34 @@
+{% include 'top.html' %}
+
+<div class="content">
+    <div class="container">
+        <h1 class="title">Car Bays</h1>
+        <div class="search">
+            <form class="search-top" method="POST" action="{{url_for('list_bays')}}">
+                <input type="text" name="search" placeholder="Search" autofocus required>
+                <button class="flat" type="submit">Submit</button>
+                <div class="clear"></div>
+            </form>
+        </div>
+        <table class="styled">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Number of Cars</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for bay in bays %}
+                    <tr>
+                        <td><a href="{{url_for('list_bays')}}?bay={{ bay[0] }}">{{ bay[0] }}</a></td>
+                        <td>{{ bay[1] }}</td>
+                        <td>{{ bay[2] }}</td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% include 'bottom.html' %}

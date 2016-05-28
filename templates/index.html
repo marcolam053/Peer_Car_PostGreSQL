@@ -1,0 +1,32 @@
+{% include 'top.html' %}
+<div class="content">
+    <div class="container details">
+        <h1 class="title"> Welcome, {{ user.nickname }}</h1>
+        <table>
+            <tr>
+                <td> Name </td>
+                <td> {{ user.title }}, {{ user.first }} {{ user.family }}</td>
+            </tr>
+            <tr>
+                <td> Member Plan </td>
+                <td> {{ user.plan }}</td>
+            </tr>
+            <tr>
+                <td>Member Since</td>
+                <td> {{ user.membersince }} </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td> {{user.address}} </td>
+            </tr>
+            <tr>
+                <td>Homebay</td>
+                <td><a href="{{url_for('list_bays')}}?bay={{user.homebay}}">{{ user.homebay }}</a></td>
+            </tr>
+            <tr>
+                <td>Number Of Bookings:</td>
+                <td>{{ user.num_bookings }}</td>
+        </table>
+    </div>
+</div>
+{% include 'bottom.html'%}

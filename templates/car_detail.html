@@ -1,0 +1,51 @@
+{% include 'top.html' %}
+<div class="content">
+    <div class="container details">
+        <h1 class="title">Car: {{ car[1] }}<a class="book_button" href="{{url_for('new_booking')}}?car={{car[0]}}">Book me!</a></h1>
+        <h2>Information</h2>
+        <table>
+            <tr>
+                <td>RegNumber</td>
+                <td> {{ car[0] }}</td>
+            </tr>
+            <tr>
+                <td> Make </td>
+                <td> {{ car[2] }}</td>
+            </tr>
+            <tr>
+                <td> Model </td>
+                <td> {{ car[3] }} </td>
+            </tr>
+            <tr>
+                <td> Year </td>
+                <td> {{ car[4] }} </td>
+            </tr>
+            <tr>
+                <td> Tramsmission </td>
+                <td> {{ car[5] }} </td>
+            </tr>
+            <tr>
+                <td> Category </td>
+                <td> {{ car[6] }} </td>
+            </tr>
+            <tr>
+                <td> Capacity </td>
+                <td> {{ car[7] }} </td>
+            </tr>
+            <tr>
+                <td> Car Bay </td>
+                <td><a href="{{url_for('list_bays')}}?bay={{car[8]}}"> {{ car[8] }}</a></td>
+            </tr>
+            <tr>
+                <td> Walkscore </td>
+				<td> {{ car[9] }} </td>
+            </tr>
+            <tr>
+                <td> Map url </td>
+				<td> {{ car[10] }} </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+{% include 'bottom.html' %}

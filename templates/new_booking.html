@@ -1,0 +1,45 @@
+{% include 'top.html' %}
+
+<div class="content">
+    <div class="container">
+        <h1 class="title">New Booking</h1>
+
+        <form class="newbooking pure-form pure-form-aligned" method="POST" action="{{url_for('new_booking')}}">
+            <div class="pure-control-group">
+                <label for="car_regno"> Car: </label>
+                <select id="car_select" name="car_regno" placeholder="Car" autofocus required>
+                    {% for car in cars %}
+                        {% if from_car == car[0] %}
+                        <option value="{{car[0]}}" selected>{{car[1]}} ({{car[0]}})</option>
+                        {% else %}
+                        <option value="{{car[0]}}">{{car[1]}} ({{car[0]}})</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="pure-control-group">
+                <label for="book_date"> Date: </label>
+                <input type="date" name="book_date" placeholder="YYYY-MM-DD" required>
+            </div>
+            <div class="pure-control-group">
+                <label for="book_hour"> Start Hour: </label>
+                <select name="book_hour" placeholder="Time" required>
+                    {% for hour in times %}
+                        <option value="{{hour}}">{{hour}}:00</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="pure-control-group">
+                <label for="duration"> Duration: </label>
+                <select name="duration" placeholder="Time" required>
+                    {% for hour in times %}
+                        <option value="{{hour}}">{{hour}} hours</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="flat">Create Booking</button>
+        </form>
+    </div>
+</div>
+
+{% include 'bottom.html' %}
